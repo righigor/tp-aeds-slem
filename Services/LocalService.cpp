@@ -1,0 +1,20 @@
+#include "LocalService.h"
+#include<iostream>
+using namespace std;
+
+LocalService::LocalService(LocalRepository &repo) : repository(repo) {}
+
+void LocalService::criar(Local &local) {
+    repository.criar(local);
+}
+void LocalService::atualizar(Local &LocalAtualizado, int id) {
+    repository.atualizar(LocalAtualizado, id);
+}
+
+std::vector<Local> LocalService::listagem() {
+    return repository.listagem();
+}
+
+void LocalService::deletar(int id) {
+    repository.deletar(id);
+}

@@ -1,9 +1,8 @@
 #include "Veiculo.h"
+#include "../Local/Local.h"
 #include <cstring>
 #include <iostream>
 using namespace std;
-
-#include "../local/Local.h"
 
 Veiculo::Veiculo(const char *_placa, const char *_modelo, bool _status, const Local &local)
 {
