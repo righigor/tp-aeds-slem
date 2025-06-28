@@ -15,6 +15,7 @@ public:
     std::vector<Veiculo> listagem();
     void deletar(int id);
     Veiculo * veiculoPeloId(int id);
+    std::vector<Veiculo> getVeiculosDisponiveis() const;
 };
 
 #endif

@@ -11,10 +11,11 @@ Local* LocalRepository::ler(int id) {
     throw runtime_error("Erro ao encontrar o local");
 }
 
-void LocalRepository::criar(Local &local)
+int LocalRepository::criar(Local &local)
 {
     local.setLocalId(locais.size());
     locais.push_back(local);
+    return local.getlocalId();
 }
 
 void LocalRepository::atualizar(Local &LocalAtualizado, int id) {

@@ -1,9 +1,10 @@
 #include "PedidoService.h"
+#include <vector>
 
 PedidoService::PedidoService(PedidoRepository &repository) : repository(repository) {}
 
-void PedidoService::criarPedido(const Pedido &pedido) {
-    repository.criar(pedido);
+int PedidoService::criarPedido(Pedido &pedido) {
+    return repository.criar(pedido);
 }
 
 void PedidoService::removerPedido(int pedidoId) {
@@ -16,4 +17,12 @@ Pedido* PedidoService::buscarPedido(int pedidoId) {
 
 std::vector<Pedido> PedidoService::listagemPedidos() {
     return repository.listagem();
+}
+
+void PedidoService::atualizarPedido(Pedido &pedido, int pedidoId) {
+    repository.atualizarPedido(pedido, pedidoId);
+}
+
+void PedidoService::getPedidosPendentes() {
+    repository.getPedidosPendentes();
 }

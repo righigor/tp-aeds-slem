@@ -8,10 +8,12 @@ class PedidoService {
         PedidoRepository &repository;
     public:
         PedidoService(PedidoRepository &repository);
-        void criarPedido(const Pedido &pedido);
+        int criarPedido(Pedido &pedido);
         void removerPedido(int pedidoId);
         Pedido* buscarPedido(int pedidoId);
         std::vector<Pedido> listagemPedidos();
+        void atualizarPedido(Pedido &pedido, int pedidoId);
+        void getPedidosPendentes();
 };
 
 #endif

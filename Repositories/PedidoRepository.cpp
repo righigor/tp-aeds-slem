@@ -1,11 +1,15 @@
 #include "PedidoRepository.h"
 #include <iostream>
 #include <algorithm>
+#include <cstring>
 using namespace std;
 
-void PedidoRepository::criar(const Pedido &pedido) {
+int PedidoRepository::criar(Pedido &pedido) {
+    pedido.setPedidoId(pedidos.size());
+    pedido.setStatus("Pendente");
     pedidos.push_back(pedido);
     cout << "Pedido adicionado com sucesso. ID do pedido: " << pedido.getPedidoId() << endl;
+    return pedido.getPedidoId();
 }
 
 void PedidoRepository::removerPedido(int pedidoId) {
@@ -32,4 +36,28 @@ Pedido* PedidoRepository::buscarPedido(int pedidoId) {
 
 vector<Pedido> PedidoRepository::listagem() {
     return pedidos;
+}
+
+void PedidoRepository::atualizarPedido(Pedido &pedido, int pedidoId) {
+    for (size_t i = 0 ; i < pedidos.size() ; i++) {
+        if (pedidos[i].getPedidoId() == pedidoId) {
+            pedidos[i] = pedido;
+            cout << "Pedido atualizado. ID do pedido: " << pedidoId << endl;
+            break;
+        }
+    }
+}
+
+void PedidoRepository::getPedidosPendentes() {
+    vector<Pedido> pendentes;
+    for (const auto &pedido : pedidos) {
+        if (strcmp(pedido.getStatus(), "Pendente") == 0) {
+            pendentes.push_back(pedido);
+        }
+    }
+    for (int i = 0; i < pendentes.size(); i++)
+    {
+        pendentes[i].getPedido();
+    }
+    
 }

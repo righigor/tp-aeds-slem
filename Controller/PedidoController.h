@@ -3,16 +3,19 @@
 
 #include "../Services/PedidoService.h"
 #include "../Controller/LocalController.h"
+#include "../Services/LocalService.h"
 
 class PedidoController {
     private:
         PedidoService &service;
         LocalController &localController;
+        LocalService &localService;
     public:
-        PedidoController(PedidoService &service, LocalController &localController);
+        PedidoController(PedidoService &service, LocalController &localController, LocalService &localService);
         void criarPedido();
-        void removerPedido(int pedidoId);
-        Pedido* buscarPedido(int pedidoId);
+        void atualizarPedido();
+        void removerPedido();
+        Pedido* buscarPedido();
         std::vector<Pedido> listagemPedidos();
 };
 

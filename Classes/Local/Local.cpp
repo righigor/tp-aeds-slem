@@ -41,7 +41,8 @@ void Local::setCoordenadaY(int Y) {
     this->coordenadaY = Y;
 };
 void Local::getLocal() const {
-    cout << "Nome do local: " << this->nome << "\n" <<
+    cout << "ID do local: " << this->localId << "\n" <<
+            "Nome do local: " << this->nome << "\n" <<
             "Coordenada do local: " << 
             "X: " << this->coordenadaX << 
             ", Y: " << this->coordenadaY << endl;

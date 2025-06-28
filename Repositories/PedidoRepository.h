@@ -5,14 +5,16 @@
 #include "../Classes/Pedido/Pedido.h"
 #include <vector>
 
-class PedidoRepository : public IRepository<Pedido> {
+class PedidoRepository {
     private:
         std::vector<Pedido> pedidos;
     public:
-        void criar(const Pedido &pedido);
+        int criar(Pedido &pedido);
         void removerPedido(int pedidoId);
         Pedido* buscarPedido(int pedidoId);
         std::vector<Pedido> listagem();
+        void atualizarPedido(Pedido &pedido, int pedidoId);
+        void getPedidosPendentes();
 };
 
 #endif

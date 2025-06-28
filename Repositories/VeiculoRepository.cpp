@@ -2,9 +2,11 @@
 #include <iostream>
 using namespace std;
 
-void VeiculoRepository::criar(Veiculo &veiculo) {
+int VeiculoRepository::criar(Veiculo &veiculo) {
     veiculo.setVeiculoId(veiculos.size());
     veiculos.push_back(veiculo);
+    cout << "Veículo adicionado com sucesso. ID do veículo: " << veiculo.getVeiculoId() << endl;
+    return veiculo.getVeiculoId();
 };
 void VeiculoRepository::atualizar(Veiculo &veiculoAtualizado, int id) {
     for (size_t i = 0 ; i < veiculos.size() ; i++) {
@@ -40,3 +42,13 @@ Veiculo * VeiculoRepository::ler(int id) {
     throw runtime_error("Erro ao encontrar o veículo");
 
 };
+
+std::vector<Veiculo> VeiculoRepository::getVeiculosDisponiveis() const {
+    std::vector<Veiculo> veiculosDisponiveis;
+    for (const auto &veiculo : veiculos) {
+        if (veiculo.getStatus()) {
+            veiculosDisponiveis.push_back(veiculo);
+        }
+    }
+    return veiculosDisponiveis;
+}

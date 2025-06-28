@@ -10,7 +10,7 @@ class LocalRepository : public IRepository<Local> {
         std::vector<Local> locais;
 
     public:
-        void criar(Local &local) override;
+        int criar(Local &local) override;
         void atualizar(Local &LocalAtualizado, int id) override;
         std::vector<Local> listagem() override;
         void deletar(int id) override;

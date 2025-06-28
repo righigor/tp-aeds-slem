@@ -11,11 +11,12 @@ class VeiculoRepository : public IRepository<Veiculo> {
         std::vector<Veiculo> veiculos;
 
     public:
-        void criar(Veiculo &Veiculo) override;
+        int criar(Veiculo &Veiculo) override;
         void atualizar(Veiculo &veiculoAtualizado, int id) override;
         std::vector<Veiculo> listagem() override;
         void deletar(int id) override;
         Veiculo * ler(int id) override;
+        std::vector<Veiculo> getVeiculosDisponiveis() const;
 };
 
 

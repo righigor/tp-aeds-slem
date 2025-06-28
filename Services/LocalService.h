@@ -11,7 +11,7 @@ private:
 public:
     LocalService(LocalRepository &repository);
     Local* localPeloId(int id);
-    void criar(Local &local);
+    int criar(Local &local);
     void atualizar(Local &LocalAtualizado, int id);
     std::vector<Local> listagem();
     void deletar(int id);

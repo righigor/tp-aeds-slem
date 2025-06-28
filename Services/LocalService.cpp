@@ -8,8 +8,8 @@ Local * LocalService::localPeloId(int id) {
     return repository.ler(id);
 }
 
-void LocalService::criar(Local &local) {
-    repository.criar(local);
+int LocalService::criar(Local &local) {
+    return repository.criar(local);
 }
 void LocalService::atualizar(Local &LocalAtualizado, int id) {
     repository.atualizar(LocalAtualizado, id);

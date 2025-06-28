@@ -22,3 +22,7 @@ std::vector<Veiculo> VeiculoService::listagem() {
 void VeiculoService::deletar(int id) {
     repository.deletar(id);
 }
+
+std::vector<Veiculo> VeiculoService::getVeiculosDisponiveis() const {
+    return repository.getVeiculosDisponiveis();
+}

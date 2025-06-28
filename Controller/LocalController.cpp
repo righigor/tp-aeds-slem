@@ -29,7 +29,7 @@ void LocalController::deletarLocal() {
     service.deletar(id);
 }
 
-shared_ptr<Local> LocalController::criarLocal() {
+int LocalController::criarLocal() {
     char nome[100];
     int x, y;
 
@@ -40,9 +40,9 @@ shared_ptr<Local> LocalController::criarLocal() {
     cout << "Digite a coordenada Y: ";
     cin >> y;
 
-    auto novoLocal = make_shared<Local>(nome, x, y);
-    service.criar(*novoLocal);
-    return novoLocal;
+    Local novoLocal(nome, x, y);
+    int id = service.criar(novoLocal);
+    return id;
 }
 
 void LocalController::atualizarLocal() {

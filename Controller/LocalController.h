@@ -12,7 +12,7 @@ public:
     LocalController(LocalService &service);
 
     void localPeloId();
-    shared_ptr<Local> criarLocal();
+    int criarLocal();
     void atualizarLocal();
     void deletarLocal();
     void listarTodos();

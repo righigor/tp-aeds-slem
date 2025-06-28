@@ -6,16 +6,23 @@
 class Pedido {
     private:
         int pedidoId;
-        shared_ptr<Local> localDeOrigem;
-        shared_ptr<Local> localDeDestino;
+        Local* localDeOrigem;
+        Local* localDeDestino;
         double pesoDoItem;
+        char* status; // "Pendente", "Em Transporte", "Entregue"
     public:
-        Pedido(int pedidoId, shared_ptr<Local> origem, shared_ptr<Local> destino, double peso);
+        Pedido(Local* origem, Local* destino, double peso);
         int getPedidoId() const;
+        void setPedidoId(int id);
         const Local * getLocalDeOrigem() const;
         const Local * getLocalDeDestino() const;
+        void setLocalDeOrigem(Local* origem);
+        void setLocalDeDestino(Local* destino);
         double getPesoDoItem() const;
-        
+        void setPesoDoItem(double peso);
+        const char* getStatus() const;
+        void setStatus(const char* novoStatus);
+        void getPedido() const;
 };
 
 #endif
