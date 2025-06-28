@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <cstdlib>
 #include "Classes/Local/Local.h"
 #include "Classes/Pedido/Pedido.h"
 #include "Classes/Veiculo/Veiculo.h"
@@ -112,10 +112,16 @@ int main() {
                 break;
 
             case 14:
+                localRepository.salvarEmArquivo();
+                veiculoRepository.salvarEmArquivo();
+                pedidoRepository.salvarEmArquivo();
                 cout << "Backup realizado com sucesso." << endl;
                 break;
 
             case 15:
+                localRepository.carregarDoArquivo();
+                veiculoRepository.carregarDoArquivo(localRepository);
+                pedidoRepository.carregarDoArquivo(localRepository);
                 cout << "Dados restaurados com sucesso." << endl;
                 break;
 
@@ -127,7 +133,9 @@ int main() {
                 cout << "Opção inválida!" << endl;
                 break;
         }
-
+        cout << "\nPressione Enter para continuar...";
+        cin.get();
+        system("cls");
     } while (opcao != 0);
 
     return 0;

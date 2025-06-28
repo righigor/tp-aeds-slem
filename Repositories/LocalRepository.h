@@ -15,6 +15,9 @@ class LocalRepository : public IRepository<Local> {
         std::vector<Local> listagem() override;
         void deletar(int id) override;
         Local* ler(int id) override;
+
+        void salvarEmArquivo();
+        void carregarDoArquivo();
 };
 
 #endif

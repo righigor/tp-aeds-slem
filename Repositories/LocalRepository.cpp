@@ -1,5 +1,6 @@
 #include "LocalRepository.h"
 #include<iostream>
+#include <fstream>
 using namespace std;
 
 Local* LocalRepository::ler(int id) {
@@ -46,3 +47,46 @@ void LocalRepository::deletar(int id) {
     }
     std::cout << "Local com ID " << id << " não encontrado.\n";
 };
+
+void LocalRepository::salvarEmArquivo() {
+    string caminho = "data/locais.bin";
+    ofstream arquivo(caminho, ios::binary | ios::trunc);
+    if (!arquivo) {
+        cerr << "Erro ao abrir o arquivo para escrita: " << caminho << endl;
+        return;
+    }
+
+    size_t tamanho = locais.size();
+    arquivo.write(reinterpret_cast<char*>(&tamanho), sizeof(size_t));
+
+    for (const auto& local : locais) {
+        arquivo.write(reinterpret_cast<const char*>(&local), sizeof(Local));
+    }
+
+    arquivo.close();
+    cout << "Locais salvos em: " << caminho << endl;
+}
+
+void LocalRepository::carregarDoArquivo() {
+    string caminho = "data/locais.bin";
+    ifstream arquivo(caminho, ios::binary);
+    if (!arquivo) {
+        cerr << "Arquivo de locais não encontrado: " << caminho << endl;
+        return;
+    }
+
+    size_t tamanho = 0;
+    arquivo.read(reinterpret_cast<char*>(&tamanho), sizeof(size_t));
+
+    locais.clear();
+    locais.reserve(tamanho);
+
+    for (size_t i = 0; i < tamanho; ++i) {
+        Local localTemp("", 0, 0);
+        arquivo.read(reinterpret_cast<char*>(&localTemp), sizeof(Local));
+        locais.push_back(localTemp);
+    }
+
+    arquivo.close();
+    cout << "Locais carregados de: " << caminho << endl;
+}

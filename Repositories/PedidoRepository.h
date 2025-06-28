@@ -3,6 +3,7 @@
 
 #include "../Interfaces/IRepository.h"
 #include "../Classes/Pedido/Pedido.h"
+#include "../Repositories/LocalRepository.h"
 #include <vector>
 
 class PedidoRepository {
@@ -15,6 +16,9 @@ class PedidoRepository {
         std::vector<Pedido> listagem();
         void atualizarPedido(Pedido &pedido, int pedidoId);
         void getPedidosPendentes();
+
+        void salvarEmArquivo();
+        void carregarDoArquivo(class LocalRepository& localRepo);
 };
 
 #endif

@@ -3,6 +3,7 @@
 
 #include "../Classes/Veiculo/Veiculo.h"
 #include "../Interfaces/IRepository.h"
+#include "../Repositories/LocalRepository.h"
 #include <vector>
 
 class VeiculoRepository : public IRepository<Veiculo> {
@@ -17,6 +18,9 @@ class VeiculoRepository : public IRepository<Veiculo> {
         void deletar(int id) override;
         Veiculo * ler(int id) override;
         std::vector<Veiculo> getVeiculosDisponiveis() const;
+
+        void salvarEmArquivo();
+        void carregarDoArquivo(LocalRepository& localRepo);
 };
 
 
