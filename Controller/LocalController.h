@@ -10,6 +10,7 @@ private:
 public:
     LocalController(LocalService &service);
 
+    void localPeloId();
     void criarLocal();
     void atualizarLocal();
     void deletarLocal();

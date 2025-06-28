@@ -2,10 +2,10 @@
 #include<iostream>
 using namespace std;
 
-Local LocalRepository::ler(int id) {
+Local* LocalRepository::ler(int id) {
     for (size_t i = 0 ; i < locais.size() ; i++) {
        if (locais[i].getlocalId() == id) {
-            return locais[i];
+            return &locais[i];
        }
     }
     throw runtime_error("Erro ao encontrar o local");

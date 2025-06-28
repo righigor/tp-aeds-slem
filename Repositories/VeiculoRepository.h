@@ -1,0 +1,22 @@
+#ifndef VEICULOREPOSITORY_H
+#define VEICULOREPOSITORY_H
+
+#include "../Classes/Veiculo/Veiculo.h"
+#include "../Interfaces/IRepository.h"
+#include <vector>
+
+class VeiculoRepository : public IRepository<Veiculo> {
+
+    private:
+        std::vector<Veiculo> veiculos;
+
+    public:
+        void criar(Veiculo &Veiculo) override;
+        void atualizar(Veiculo &veiculoAtualizado, int id) override;
+        std::vector<Veiculo> listagem() override;
+        void deletar(int id) override;
+        Veiculo * ler(int id) override;
+};
+
+
+#endif

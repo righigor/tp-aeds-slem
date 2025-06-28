@@ -1,0 +1,7 @@
+//copia toda a linha de baixo e executa para compilar
+
+g++ -std=c++17 -Wall -Wextra -o meuPrograma.exe Classes/Local/Local.cpp Repositories/LocalRepository.cpp Services/LocalService.cpp Controller/LocalController.cpp Classes/Veiculo/Veiculo.cpp Repositories/VeiculoRepository.cpp Services/VeiculoService.cpp Controller/VeiculoController.cpp main.cpp
+
+//para rodar executa o .exe com o comando abaixo
+
+./meuPrograma.exe

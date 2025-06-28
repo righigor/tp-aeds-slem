@@ -14,6 +14,12 @@ Veiculo::Veiculo(const char *_placa, const char *_modelo, bool _status, const Lo
   localAtual = new Local(local);
 }
 
+Veiculo::Veiculo(const char* _placa, const Local& local) {
+    strncpy(placa, _placa, sizeof(placa) - 1);
+    placa[sizeof(placa) - 1] = '\0';
+    localAtual = new Local(local);
+}
+
 void Veiculo::setStatus(bool novoStatus)
 {
   status = novoStatus;
@@ -42,6 +48,16 @@ bool Veiculo::getStatus() const
 Local Veiculo::getLocalAtual() const
 {
   return *localAtual;
+}
+int Veiculo::getVeiculoId() const {
+    return this->veiculoId;
+}
+void Veiculo::setVeiculoId(int id) {
+    this->veiculoId = id;
+}
+void Veiculo::setPlaca(const char * placa) {
+    strncpy(this->placa, placa, sizeof(this->placa) - 1);
+    this->placa[sizeof(placa) - 1] = '\0';
 }
 
 void Veiculo::getVeiculo() const

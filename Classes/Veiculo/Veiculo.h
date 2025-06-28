@@ -5,6 +5,7 @@
 
 class Veiculo {
   private:
+    int veiculoId;
     char placa[20];
     char modelo[20];
     bool status;
@@ -12,12 +13,17 @@ class Veiculo {
 
   public:
 
+    int getVeiculoId() const;
+    void setVeiculoId(int id);
+
     // Contrutor da classe
     Veiculo(const char* _placa, const char* _modelo, bool _status, const Local& local);
+    Veiculo(const char* _placa, const Local& local);
 
     // Setters
     void setStatus(bool novoStatus);
     void setLocal(const Local& novo);
+    void setPlaca(const char * placa);
 
     // Getters
     const char* getPlaca() const;

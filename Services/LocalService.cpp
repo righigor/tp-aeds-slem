@@ -4,6 +4,10 @@ using namespace std;
 
 LocalService::LocalService(LocalRepository &repo) : repository(repo) {}
 
+Local * LocalService::localPeloId(int id) {
+    return repository.ler(id);
+}
+
 void LocalService::criar(Local &local) {
     repository.criar(local);
 }

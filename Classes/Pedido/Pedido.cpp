@@ -17,6 +17,6 @@ Pedido::Pedido(int pedidoId, Local * origem, Local * destino, double peso) {
     this->localDeDestino = destino;
     this->pesoDoItem = peso;
 }
-const int Pedido::getPedidoId() const {
+int Pedido::getPedidoId() const {
     return this->pedidoId;
 }

@@ -1,17 +1,23 @@
 #include "LocalController.h"
 #include <iostream>
 #include <string>
-#include <stdio.h>
 using namespace std;
 
 LocalController::LocalController(LocalService &service) : service(service) {}
+
+void LocalController::localPeloId() {
+    int id;
+    cout << "Insira o id do local que deseja consultar:";
+    cin >> id;
+    Local * local = service.localPeloId(id);
+    local->getLocal();
+}
 
 void LocalController::listarTodos() {
     std::vector<Local> locais = service.listagem();
 
     for (size_t i = 0 ; i < locais.size() ; i++) {
-        cout << "ID: " << locais[i].getlocalId() << ", Nome: " << locais[i].getNome()
-                  << ", Coordenadas: (" << locais[i].getCoordenadaX() << ", " << locais[i].getCoordenadaY() << ")\n";
+        locais[i].getLocal();
     }
 }
 
