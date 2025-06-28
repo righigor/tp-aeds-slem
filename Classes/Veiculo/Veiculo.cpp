@@ -14,9 +14,8 @@ Veiculo::Veiculo(const char *_placa, const char *_modelo, bool _status, const Lo
   localAtual = new Local(local);
 }
 
-Veiculo::Veiculo(const char* _placa, const Local& local) {
-    strncpy(placa, _placa, sizeof(placa) - 1);
-    placa[sizeof(placa) - 1] = '\0';
+Veiculo::Veiculo(bool status, const Local& local) {
+    this->status = status;
     localAtual = new Local(local);
 }
 

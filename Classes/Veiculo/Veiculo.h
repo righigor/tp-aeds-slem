@@ -18,7 +18,7 @@ class Veiculo {
 
     // Contrutor da classe
     Veiculo(const char* _placa, const char* _modelo, bool _status, const Local& local);
-    Veiculo(const char* _placa, const Local& local);
+    Veiculo(bool status, const Local& local);
 
     // Setters
     void setStatus(bool novoStatus);

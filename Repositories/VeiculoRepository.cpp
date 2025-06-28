@@ -10,7 +10,7 @@ void VeiculoRepository::atualizar(Veiculo &veiculoAtualizado, int id) {
     for (size_t i = 0 ; i < veiculos.size() ; i++) {
         if (veiculos[i].getVeiculoId() == id) {
             veiculos[i].setLocal(veiculoAtualizado.getLocalAtual());
-            veiculos[i].setPlaca(veiculoAtualizado.getPlaca());
+            veiculos[i].setStatus(veiculoAtualizado.getStatus());
             cout << "Veículo atualizado. Id do veículo: " << id << endl;
             break;
         }

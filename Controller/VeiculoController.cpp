@@ -50,13 +50,13 @@ void VeiculoController::deletarVeiculo() {
 }
 
 void VeiculoController::atualizarVeiculo() {
-    char placa[20];
+    bool status;
     int idLocal, idVeiculo;
 
     cout << "Insira o id do veículo que queira atualizar: ";
     cin >> idVeiculo;
-    cout << "Insira a nova placa:";
-    fgets(placa, sizeof(placa), stdin);
+    cout << "Insira o novo status do veículo (1 = Disponível, 0 = Ocupado): ";
+    cin >> status;
     cout << "Insira o id do novo local:";
     cin >> idLocal;
     
@@ -66,7 +66,7 @@ void VeiculoController::atualizarVeiculo() {
         return;
     }
 
-    Veiculo veiculoAtualizado(placa, *local);
+    Veiculo veiculoAtualizado(status, *local);
 }
 
 void VeiculoController::veiculoPeloId() {
