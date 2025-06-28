@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <cstring>
 using namespace std;
 
 LocalController::LocalController(LocalService &service) : service(service) {}
@@ -35,6 +36,7 @@ int LocalController::criarLocal() {
 
     cout << "Digite o nome do local: ";
     fgets(nome, sizeof(nome), stdin);
+    nome[strcspn(nome, "\n")] = 0;
     cout << "Digite a coordenada X: ";
     cin >> x;
     cout << "Digite a coordenada Y: ";

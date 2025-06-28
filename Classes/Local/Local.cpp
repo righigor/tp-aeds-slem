@@ -5,7 +5,7 @@ using namespace std;
 
 Local::Local(const char * nome, int x, int y)
 {
-    strncpy(this->nome, nome, sizeof(nome) - 1);
+    strncpy(this->nome, nome, sizeof(this->nome) - 1);
     this->nome[sizeof(this->nome) - 1] = '\0';
     this->coordenadaX = x;
     this->coordenadaY = y;

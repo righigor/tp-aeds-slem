@@ -5,10 +5,13 @@ using namespace std;
 PedidoController::PedidoController(PedidoService &service, LocalController &localController, LocalService &localService) : service(service), localController(localController), localService(localService) {}
 
 void PedidoController::criarPedido() {
-    int pedidoId;
-    int idOrigem = localController.criarLocal();
-    int idDestino = localController.criarLocal();
+    int idOrigem, idDestino;
     double peso;
+    cout << "Criar Pedido" << endl;
+    cout << "Digite o ID do local de origem: ";
+    cin >> idOrigem;
+    cout << "Digite o ID do local de destino: ";
+    cin >> idDestino;
     cout << "Digite o peso do item (kg): ";
     cin >> peso;
     Local* localDeOrigem = localService.localPeloId(idOrigem);
