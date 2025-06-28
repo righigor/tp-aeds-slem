@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
-#include "../ultils/utils.h"
+#include "../utils/utils.h"
 #include "../Classes/Entrega/Entrega.h"
 
 using namespace std;

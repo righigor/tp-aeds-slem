@@ -8,9 +8,9 @@
 
 class EntregaService {
     private:
-      EntregaRepository &repository;
+    EntregaRepository &repository;
     public:
-    EntregaService(EntregaRepository &repo) : repository(repo) {}
+    EntregaService(EntregaRepository &repository);
     Entrega* criarEntrega(Pedido *pedido, Veiculo *veiculo);
     Entrega* buscarEntregaById(int entregaId);
 };

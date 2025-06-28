@@ -3,7 +3,7 @@
 using namespace std;
 
 
-EntregaService::EntregaService(EntregaRepository &repo) : repository(repo) {}
+EntregaService::EntregaService(EntregaRepository &repository) : repository(repository) {}
 
 Entrega* EntregaService::criarEntrega(Pedido *pedido, Veiculo *veiculo) {
     return repository.criarEntrega(pedido, veiculo);

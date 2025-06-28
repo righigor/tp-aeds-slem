@@ -39,6 +39,7 @@ int LocalController::criarLocal() {
     cin >> x;
     cout << "Digite a coordenada Y: ";
     cin >> y;
+    cin.ignore();
 
     Local novoLocal(nome, x, y);
     int id = service.criar(novoLocal);

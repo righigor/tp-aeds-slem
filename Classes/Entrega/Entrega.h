@@ -1,8 +1,8 @@
 #ifndef ENTREGA_H
 #define ENTREGA_H
 
-#include "../Classes/Pedido/Pedido.h"
-#include "../Classes/Veiculo/Veiculo.h"
+#include "../Pedido/Pedido.h"
+#include "../Veiculo/Veiculo.h"
 
 class Entrega {
     private:
