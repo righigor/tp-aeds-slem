@@ -1,6 +1,7 @@
 #include "LocalController.h"
 #include <iostream>
 #include <string>
+#include <memory>
 using namespace std;
 
 LocalController::LocalController(LocalService &service) : service(service) {}
@@ -28,7 +29,7 @@ void LocalController::deletarLocal() {
     service.deletar(id);
 }
 
-void LocalController::criarLocal() {
+shared_ptr<Local> LocalController::criarLocal() {
     char nome[100];
     int x, y;
 
@@ -39,9 +40,9 @@ void LocalController::criarLocal() {
     cout << "Digite a coordenada Y: ";
     cin >> y;
 
-    Local novoLocal(nome, x, y);
-    service.criar(novoLocal);
-    
+    auto novoLocal = make_shared<Local>(nome, x, y);
+    service.criar(*novoLocal);
+    return novoLocal;
 }
 
 void LocalController::atualizarLocal() {

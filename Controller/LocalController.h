@@ -2,6 +2,7 @@
 #define LOCALCONTROLLER_H
 
 #include "../Services/LocalService.h"
+#include <memory>
 
 class LocalController {
 private:
@@ -11,7 +12,7 @@ public:
     LocalController(LocalService &service);
 
     void localPeloId();
-    void criarLocal();
+    shared_ptr<Local> criarLocal();
     void atualizarLocal();
     void deletarLocal();
     void listarTodos();

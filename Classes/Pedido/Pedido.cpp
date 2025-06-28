@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-#include "../local/Local.h"
+#include "../Local/Local.h"
 
 Pedido::Pedido(int pedidoId, Local * origem, Local * destino, double peso) {
     if (peso <= 0) {
@@ -19,4 +19,15 @@ Pedido::Pedido(int pedidoId, Local * origem, Local * destino, double peso) {
 }
 int Pedido::getPedidoId() const {
     return this->pedidoId;
+}
+
+const Local * Pedido::getLocalDeOrigem() const {
+    return this->localDeOrigem;
+}
+
+const Local * Pedido::getLocalDeDestino() const {
+    return this->localDeDestino;
+}
+double Pedido::getPesoDoItem() const {
+    return this->pesoDoItem;
 }

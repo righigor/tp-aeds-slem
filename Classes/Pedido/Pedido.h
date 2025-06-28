@@ -6,14 +6,15 @@
 class Pedido {
     private:
         int pedidoId;
-        Local * localDeOrigem;
-        Local * localDeDestino;
+        shared_ptr<Local> localDeOrigem;
+        shared_ptr<Local> localDeDestino;
         double pesoDoItem;
     public:
-        Pedido(int pedidoId, Local * origem, Local * destino, double peso);
+        Pedido(int pedidoId, shared_ptr<Local> origem, shared_ptr<Local> destino, double peso);
         int getPedidoId() const;
         const Local * getLocalDeOrigem() const;
         const Local * getLocalDeDestino() const;
+        double getPesoDoItem() const;
         
 };
 
