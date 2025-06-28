@@ -9,13 +9,13 @@ class Pedido {
         Local* localDeOrigem;
         Local* localDeDestino;
         double pesoDoItem;
-        char* status; // "Pendente", "Em Transporte", "Entregue"
+        char status[20]; // "Pendente", "Em Transporte", "Entregue"
     public:
-        Pedido(Local* origem, Local* destino, double peso);
+        Pedido(Local * origem, Local * destino, double peso);
         int getPedidoId() const;
         void setPedidoId(int id);
-        const Local * getLocalDeOrigem() const;
-        const Local * getLocalDeDestino() const;
+        Local * getLocalDeOrigem() const;
+        Local * getLocalDeDestino() const;
         void setLocalDeOrigem(Local* origem);
         void setLocalDeDestino(Local* destino);
         double getPesoDoItem() const;

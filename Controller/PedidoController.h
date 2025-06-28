@@ -15,8 +15,8 @@ class PedidoController {
         void criarPedido();
         void atualizarPedido();
         void removerPedido();
-        Pedido* buscarPedido();
-        std::vector<Pedido> listagemPedidos();
+        void buscarPedido();
+        void listagemPedidos();
 };
 
 #endif

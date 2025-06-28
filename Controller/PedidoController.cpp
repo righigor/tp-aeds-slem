@@ -31,22 +31,27 @@ void PedidoController::removerPedido() {
     service.removerPedido(pedidoId);
 }
 
-Pedido* PedidoController::buscarPedido() {
+void PedidoController::buscarPedido() {
     int pedidoId;
     cout << "Insira o ID do pedido que deseja buscar: ";
     cin >> pedidoId;
-    return service.buscarPedido(pedidoId);
+    Pedido * pedido = service.buscarPedido(pedidoId);
+    pedido->getPedido();
 }
 
-std::vector<Pedido> PedidoController::listagemPedidos() {
-    return service.listagemPedidos();
+void PedidoController::listagemPedidos() {
+    vector<Pedido> pedidos = service.listagemPedidos();
+
+    for (size_t i = 0 ; i < pedidos.size() ; i++) {
+        pedidos[i].getPedido();
+    }
 }
 
 void PedidoController::atualizarPedido() {
     int pedidoId;
     cout << "Insira o ID do pedido que deseja atualizar: ";
+    cin.ignore();
     cin >> pedidoId;
-
     Pedido* pedido = service.buscarPedido(pedidoId);
     if (!pedido) {
         cout << "Pedido não encontrado." << endl;
@@ -66,10 +71,10 @@ void PedidoController::atualizarPedido() {
         cout << "Erro: Atualização do pedido falhou." << endl;
         return;
     }
-    char* novoStatus;
+    char novoStatus[100];
     cout << "Digite o novo status do pedido (Pendente, Em Transporte, Entregue): ";
     cin.ignore();
-    cin.getline(novoStatus, 100);
+    cin.getline(novoStatus, sizeof(novoStatus));
 
     pedido->setLocalDeOrigem(localDeOrigem);
     pedido->setLocalDeDestino(localDeDestino);

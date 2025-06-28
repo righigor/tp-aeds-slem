@@ -38,7 +38,7 @@ void VeiculoController::criarVeiculo() {
         return;
     }
 
-    Veiculo novoVeiculo(placa, modelo, status, *local);
+    Veiculo novoVeiculo(placa, modelo, status, local);
     service.criar(novoVeiculo);
 }
 
@@ -60,13 +60,14 @@ void VeiculoController::atualizarVeiculo() {
     cout << "Insira o id do novo local:";
     cin >> idLocal;
     
-    Local* local = localService.localPeloId(idLocal);
+    Local * local = localService.localPeloId(idLocal);
     if (!local) {
         cout << "Local não encontrado!\n";
         return;
     }
 
-    Veiculo veiculoAtualizado(status, *local);
+    Veiculo veiculoAtualizado(status, local);
+    service.atualizar(veiculoAtualizado, idVeiculo);
 }
 
 void VeiculoController::veiculoPeloId() {

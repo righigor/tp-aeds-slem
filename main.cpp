@@ -1,19 +1,23 @@
-# include <iostream>
+#include <iostream>
 
-# include "Classes/Local/Local.h"
-# include "Classes/Pedido/Pedido.h"
-# include "Classes/Veiculo/Veiculo.h"
+#include "Classes/Local/Local.h"
+#include "Classes/Pedido/Pedido.h"
+#include "Classes/Veiculo/Veiculo.h"
+
 #include "Controller/LocalController.h"
 #include "Controller/VeiculoController.h"
 #include "Controller/PedidoController.h"
+#include "Controller/EntregaController.h"
+
 #include "Repositories/LocalRepository.h"
 #include "Repositories/VeiculoRepository.h"
 #include "Repositories/PedidoRepository.h"
+#include "Repositories/EntregaRepository.h"
+
 #include "Services/LocalService.h"
 #include "Services/VeiculoService.h"
 #include "Services/PedidoService.h"
-
-#include "Controller/EntregaController.h"
+#include "Services/EntregaService.h"
 
 using namespace std;
 

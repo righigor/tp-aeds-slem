@@ -9,12 +9,15 @@ Pedido::Pedido(Local * origem, Local * destino, double peso) {
     if (peso <= 0) {
         throw runtime_error("Peso inválido.");
     }
-    if (origem == NULL || destino == NULL) {
+    /*
+        if (origem == NULL || destino == NULL) {
         throw runtime_error("Objeto de origem ou destino inválido.");
-    }
+        }
+    */
     this->localDeOrigem = origem;
     this->localDeDestino = destino;
     this->pesoDoItem = peso;
+    strcpy(this->status, "Pendente");
 }
 int Pedido::getPedidoId() const {
     return this->pedidoId;
@@ -24,11 +27,11 @@ void Pedido::setPedidoId(int id) {
     this->pedidoId = id;
 }
 
-const Local * Pedido::getLocalDeOrigem() const {
+Local * Pedido::getLocalDeOrigem() const {
     return this->localDeOrigem;
 }
 
-const Local * Pedido::getLocalDeDestino() const {
+Local * Pedido::getLocalDeDestino() const {
     return this->localDeDestino;
 }
 double Pedido::getPesoDoItem() const {
@@ -41,9 +44,8 @@ const char* Pedido::getStatus() const {
 
 void Pedido::setStatus(const char* novoStatus) {
     if (strcmp(novoStatus, "Pendente") == 0 || strcmp(novoStatus, "Em Transporte") == 0 || strcmp(novoStatus, "Entregue") == 0) {
-        delete[] this->status;
-        this->status = new char[strlen(novoStatus) + 1];
-        strcpy(this->status, novoStatus);
+        strncpy(this->status, novoStatus, sizeof(this->status) - 1);
+        this->status[sizeof(this->status) - 1] = '\0';
     } else {
         throw runtime_error("Status inválido.");
     }

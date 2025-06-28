@@ -14,7 +14,7 @@ void VeiculoRepository::atualizar(Veiculo &veiculoAtualizado, int id) {
             veiculos[i].setLocal(veiculoAtualizado.getLocalAtual());
             veiculos[i].setStatus(veiculoAtualizado.getStatus());
             cout << "Veículo atualizado. Id do veículo: " << id << endl;
-            break;
+            return;
         }
     }
     cout << "Veículo com ID " << id << " não encontrado." << endl;

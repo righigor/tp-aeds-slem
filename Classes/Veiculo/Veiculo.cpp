@@ -4,19 +4,19 @@
 #include <iostream>
 using namespace std;
 
-Veiculo::Veiculo(const char *_placa, const char *_modelo, bool _status, const Local &local)
+Veiculo::Veiculo(const char *_placa, const char *_modelo, bool _status, Local * local)
 {
   strncpy(placa, _placa, sizeof(placa) - 1);
   placa[sizeof(placa) - 1] = '\0';
   strncpy(modelo, _modelo, sizeof(modelo) - 1);
   modelo[sizeof(modelo) - 1] = '\0';
   status = _status;
-  localAtual = new Local(local);
+  localAtual = local;
 }
 
-Veiculo::Veiculo(bool status, const Local& local) {
+Veiculo::Veiculo(bool status, Local * local) {
     this->status = status;
-    localAtual = new Local(local);
+    this->localAtual = local;
 }
 
 void Veiculo::setStatus(bool novoStatus)
@@ -24,9 +24,9 @@ void Veiculo::setStatus(bool novoStatus)
   status = novoStatus;
 }
 
-void Veiculo::setLocal(const Local &novo)
+void Veiculo::setLocal(Local * novo)
 {
-  *localAtual = novo;
+  this->localAtual = novo;
 }
 
 const char *Veiculo::getPlaca() const
@@ -44,9 +44,9 @@ bool Veiculo::getStatus() const
   return status;
 }
 
-Local Veiculo::getLocalAtual() const
+Local * Veiculo::getLocalAtual() const
 {
-  return *localAtual;
+  return localAtual;
 }
 int Veiculo::getVeiculoId() const {
     return this->veiculoId;
@@ -61,9 +61,9 @@ void Veiculo::setPlaca(const char * placa) {
 
 void Veiculo::getVeiculo() const
 {
-  cout << "Placa: " << placa << "\n";
-  cout << "Modelo: " << modelo << "\n";
-  cout << "Status: " << (status ? "Disponível" : "Ocupado") << "\n";
-  cout << "Local Atual: ";
-  localAtual->getLocal();
+  cout << "Placa: " << placa << "\n" <<
+          "Modelo: " << modelo << "\n" <<
+          "Status: " << (status ? "Disponível" : "Ocupado") << "\n" <<
+          "Local Atual: \n";
+          localAtual->getLocal();
 }

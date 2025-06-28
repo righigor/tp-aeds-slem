@@ -55,7 +55,7 @@ void PedidoRepository::getPedidosPendentes() {
             pendentes.push_back(pedido);
         }
     }
-    for (int i = 0; i < pendentes.size(); i++)
+    for (size_t i = 0; i < pendentes.size(); i++)
     {
         pendentes[i].getPedido();
     }

@@ -23,7 +23,7 @@ void EntregaController::realizarEntrega() {
     }
 
     vector<Veiculo> veiculosDisponiveis = veiculoService.getVeiculosDisponiveis();
-    Veiculo* veiculo = encontrarVeiculoMaisProximo(veiculosDisponiveis, *pedido->getLocalDeDestino());
+    Veiculo* veiculo = encontrarVeiculoMaisProximo(veiculosDisponiveis, pedido->getLocalDeDestino());
     veiculo->getVeiculo();
     veiculo->setStatus(false);
     pedido->setStatus("Em Transporte");
@@ -41,7 +41,7 @@ void EntregaController::finalizarEntrega(int entregaId) {
     entrega->atualizarStatus(true);
     Veiculo* veiculo = entrega->getVeiculo();
     veiculo->setStatus(true);
-    veiculo->setLocal(*(entrega->getPedido()->getLocalDeDestino()));
+    veiculo->setLocal((entrega->getPedido()->getLocalDeDestino()));
     Pedido* pedido = entrega->getPedido();
     pedido->setStatus("Entregue");
 

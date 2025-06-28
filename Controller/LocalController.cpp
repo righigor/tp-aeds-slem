@@ -57,12 +57,14 @@ void LocalController::atualizarLocal() {
     int x, y;
 
     cout << "Digite o novo nome do local: ";
+    cin.ignore();
     fgets(nome, sizeof(nome), stdin);
     cout << "Digite a nova coordenada X: ";
     cin >> x;
     cout << "Digite a nova coordenada Y: ";
     cin >> y;
-
+    cin.ignore();
+    
     Local novoLocal(nome, x, y);
     service.atualizar(novoLocal, id);
 
