@@ -5,9 +5,10 @@
 #include <cstring>
 #include <fstream>
 using namespace std;
+static int numeroDePedidos = 0;
 
 int PedidoRepository::criar(Pedido &pedido) {
-    pedido.setPedidoId(pedidos.size());
+    pedido.setPedidoId(numeroDePedidos++);
     pedido.setStatus("Pendente");
     pedidos.push_back(pedido);
     cout << "Pedido adicionado com sucesso. ID do pedido: " << pedido.getPedidoId() << endl;
@@ -45,9 +46,10 @@ void PedidoRepository::atualizarPedido(Pedido &pedido, int pedidoId) {
         if (pedidos[i].getPedidoId() == pedidoId) {
             pedidos[i] = pedido;
             cout << "Pedido atualizado. ID do pedido: " << pedidoId << endl;
-            break;
+            return;
         }
     }
+    cout << "Pedido com ID " << pedidoId << " não encontrado." << endl;
 }
 
 void PedidoRepository::getPedidosPendentes() {

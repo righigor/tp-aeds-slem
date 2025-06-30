@@ -3,9 +3,10 @@
 #include <iostream>
 #include <fstream>
 using namespace std;
+static int numeroDeVeiculos = 0;
 
 int VeiculoRepository::criar(Veiculo &veiculo) {
-    veiculo.setVeiculoId(veiculos.size());
+    veiculo.setVeiculoId(numeroDeVeiculos++);
     veiculos.push_back(veiculo);
     cout << "Veículo adicionado com sucesso. ID do veículo: " << veiculo.getVeiculoId() << endl;
     return veiculo.getVeiculoId();

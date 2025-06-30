@@ -18,9 +18,15 @@ void LocalController::localPeloId() {
 void LocalController::listarTodos() {
     std::vector<Local> locais = service.listagem();
 
-    for (size_t i = 0 ; i < locais.size() ; i++) {
-        locais[i].getLocal();
+    if (locais.size() == 0) {
+        cout << "Não há locais criados." << endl;
+    } else {
+        cout << "===== Lista de locais =====" << endl;
+        for (size_t i = 0 ; i < locais.size() ; i++) {
+            locais[i].getLocal();
+        }
     }
+    
 }
 
 void LocalController::deletarLocal() {

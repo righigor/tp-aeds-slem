@@ -2,6 +2,7 @@
 #include<iostream>
 #include <fstream>
 using namespace std;
+static int numeroDeLocais = 0;
 
 Local* LocalRepository::ler(int id) {
     for (size_t i = 0 ; i < locais.size() ; i++) {
@@ -14,7 +15,7 @@ Local* LocalRepository::ler(int id) {
 
 int LocalRepository::criar(Local &local)
 {
-    local.setLocalId(locais.size());
+    local.setLocalId(numeroDeLocais++);
     locais.push_back(local);
     return local.getlocalId();
 }
@@ -27,7 +28,7 @@ void LocalRepository::atualizar(Local &LocalAtualizado, int id) {
             locais[i].setCoordenadaY(LocalAtualizado.getCoordenadaY());
             
             cout << "Local atualizado. Id do local: " << id << endl;
-            break;
+            return;
         }
     }
     cout << "Local com ID " << id << " não encontrado." << endl;

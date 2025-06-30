@@ -42,8 +42,13 @@ void PedidoController::buscarPedido() {
 void PedidoController::listagemPedidos() {
     vector<Pedido> pedidos = service.listagemPedidos();
 
-    for (size_t i = 0 ; i < pedidos.size() ; i++) {
-        pedidos[i].getPedido();
+    if (pedidos.size() == 0) {
+        cout << "Não há pedidos criados." << endl;
+    } else {
+        cout << "===== Lista de pedidos =====" << endl;
+        for (size_t i = 0 ; i < pedidos.size() ; i++) {
+            pedidos[i].getPedido();
+        }
     }
 }
 

@@ -11,8 +11,13 @@ VeiculoController::VeiculoController(VeiculoService &service, LocalService &loca
 void VeiculoController::listarTodos() {
     std::vector<Veiculo> veiculos = service.listagem();
 
-    for (size_t i = 0 ; i < veiculos.size() ; i++) {
-        veiculos[i].getVeiculo();
+    if (veiculos.size() == 0) {
+        cout << "Não há veículos criados." << endl;
+    } else {
+        cout << "===== Lista de veículos =====" << endl;
+        for (size_t i = 0 ; i < veiculos.size() ; i++) {
+            veiculos[i].getVeiculo();
+        }
     }
 }
 
